@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>celine todo list</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+</head>
+<body>
+  <div class="layout">
+    <!-- panel kiri -->
+    <aside class="sidebar">
+      <div class="profile">
+        <img src="https://api.dicebear.com/7.x/thumbs/svg?seed=celine" alt="profil celine" class="avatar">
+        <h1>🌸 Celine Todo List</h1>
+        <p class="subtitle">kegiatan perkuliahan & tugas harian mahasiswa</p>
+      </div>
+    </aside>
+
+    <!-- panel kanan -->
+    <main class="content">
+      <!-- form tambah todo -->
+      <form class="form-row" onsubmit="return false;">
+        <label for="todoInput" class="form-label">tambah kegiatan</label>
+        <input id="todoInput" class="input" placeholder="contoh: kerjakan laporan praktikum..." />
+
+        <!-- pilihan prioritas -->
+        <select id="prioritySelect" class="input" style="margin-top:10px;">
+          <option value="normal">📌 Prioritas Normal</option>
+          <option value="high">🔥 Prioritas Tinggi</option>
+          <option value="low">🌿 Prioritas Rendah</option>
+        </select>
+
+        <button id="addBtn" class="btn">＋ tambah</button>
+      </form>
+
+      <!-- pencarian -->
+      <div class="form-row">
+        <label for="searchInput" class="form-label">pencarian</label>
+        <input id="searchInput" class="search" placeholder="🔍 cari kegiatan..." />
+      </div>
+
+      <!-- filter -->
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">semua</button>
+        <button class="filter-btn" data-filter="done">selesai</button>
+        <button class="filter-btn" data-filter="undone">belum selesai</button>
+      </div>
+
+      <!-- edit area -->
+      <div class="edit-area" id="editArea">
+        <input id="editInput" class="input" placeholder="ubah judul kegiatan..." />
+        <button id="updateBtn" class="btn">💾 update</button>
+        <button id="cancelEditBtn" class="filter-btn">batal</button>
+      </div>
+
+      <!-- daftar todo -->
+      <section class="list" id="todoList"></section>
+
+      <!-- catatan -->
+      <div class="note" id="countNote"></div>
+      <div class="error" id="errorBox"></div>
+
+      <!-- statistik -->
+      <section class="list" style="margin-top:30px;">
+        <h2 style="color:var(--accent);">📊 Statistik Kegiatan</h2>
+        <p id="statTotal">Total kegiatan: 0</p>
+        <p id="statDone">Selesai: 0</p>
+        <p id="statUndone">Belum selesai: 0</p>
+      </section>
+
+      <!-- riwayat aktivitas -->
+      <section class="list" style="margin-top:30px;">
+        <h2 style="color:var(--accent);">📝 Riwayat Aktivitas</h2>
+        <ul id="activityLog" style="list-style: none; padding:0; margin:0;">
+          <!-- log aktivitas akan muncul di sini -->
+        </ul>
+      </section>
+
+      <!-- catatan tambahan -->
+      <section class="list" style="margin-top:30px;">
+        <h2 style="color:var(--accent);">📒 Catatan Tambahan</h2>
+        <textarea id="extraNotes" class="input" rows="5" placeholder="Tulis catatan bebas di sini..."></textarea>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="todo.js"></script>
+</body>
+</html>
